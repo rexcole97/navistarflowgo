@@ -1,0 +1,54 @@
+﻿@page
+@model noviflowgo.Pages.Employees.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.employee[0].FN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.employee[0].LN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.employee[0].Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.employee[0].status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.employee) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.EID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.EID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.EID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

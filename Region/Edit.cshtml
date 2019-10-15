@@ -1,0 +1,50 @@
+﻿@page
+@model noviflowgo.Pages.Region.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>regions</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="regions.RID" />
+            <div class="form-group">
+                <label asp-for="regions.Rname" class="control-label"></label>
+                <input asp-for="regions.Rname" class="form-control" />
+                <span asp-validation-for="regions.Rname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="regions.RLocation" class="control-label"></label>
+                <input asp-for="regions.RLocation" class="form-control" />
+                <span asp-validation-for="regions.RLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="regions.RRole" class="control-label"></label>
+                <input asp-for="regions.RRole" class="form-control" />
+                <span asp-validation-for="regions.RRole" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="regions.DID" class="control-label"></label>
+                <input asp-for="regions.DID" class="form-control" />
+                <span asp-validation-for="regions.DID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

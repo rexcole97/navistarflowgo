@@ -1,0 +1,54 @@
+﻿@page
+@model noviflowgo.Pages.Region.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.regions[0].Rname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.regions[0].RLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.regions[0].RRole)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.regions[0].DID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.regions) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.RID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.RID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.RID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
